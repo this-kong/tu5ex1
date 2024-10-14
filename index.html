@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ex1</title>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<canvas id="tutorial" width="300" height="330"></canvas>
+<script type="text/javascript">
+function draw(){
+    var canvas = document.getElementById('tutorial');
+    if(!canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
+
+	//背景
+	ctx.fillStyle = '#90ff6f';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+	//脸
+	ctx.beginPath();
+    ctx.arc(150, 150, 100, -Math.PI, Math.PI, false);
+    ctx.stroke();
+	ctx.fillStyle = "yellow"
+	ctx.fill();
+
+	//眼睛
+	ctx.beginPath();
+    ctx.arc(110, 120, 10, -Math.PI, Math.PI, false);
+	ctx.stroke();
+	ctx.fillStyle = "black"
+	ctx.fill();
+	ctx.beginPath();
+	ctx.arc(190, 120, 10, -Math.PI, Math.PI, false);
+	ctx.stroke();
+	ctx.fillStyle = "black"
+	ctx.fill();
+
+	//鼻子
+	ctx.beginPath();
+	ctx.moveTo(150,150);
+	ctx.lineTo(150,180);
+	ctx.stroke();
+	ctx.fillStyle = "black"
+
+	//嘴巴
+	ctx.beginPath();
+    ctx.moveTo(110,200);
+	ctx.quadraticCurveTo(150, 245, 190, 200);
+    ctx.stroke();
+
+	//文字
+	ctx.font = "18px sans-serif"
+	ctx.fillText("The Canvas brought me to life!", 20, 300);
+	
+}
+draw();
+</script>
+</body>
+</html>
